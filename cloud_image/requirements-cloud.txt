@@ -1,0 +1,23 @@
+# Pre-baked AI & Web Worker dependencies for VIE-Phim Vast.ai Cloud Image
+# NOTE:
+# - torch, torchaudio, torchvision, nvidia-*, triton are intentionally excluded here
+#   so /app/constraints.txt locks ONLY the base CUDA 12.4 PyTorch core.
+# - faster-whisper, ctranslate2, pyannote.audio are intentionally NOT pinned separately
+#   so whisperx>=3.2.0 resolves compatible versions cleanly without solver conflicts.
+
+fastapi>=0.115.0,<0.120
+uvicorn[standard]>=0.32.0,<0.36
+httpx>=0.27.0,<0.29
+python-multipart>=0.0.12
+pydantic>=2.7.0,<3.0
+hf_transfer>=0.1.8
+
+numpy>=1.26.0,<2.0.0
+soundfile>=0.12.1
+soxr>=0.5.0
+scipy>=1.12.0
+pyloudnorm>=0.1.1
+audio-separator[gpu]>=0.22.0
+
+whisperx>=3.2.0
+vieneu>=3.8.5

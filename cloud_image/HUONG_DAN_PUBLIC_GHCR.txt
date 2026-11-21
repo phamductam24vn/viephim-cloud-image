@@ -1,0 +1,22 @@
+HƯỚNG DẪN XUẤT BẢN & BẬT PUBLIC CHO DOCKER IMAGE TRÊN GHCR.IO
+===================================================================
+
+Sau khi push code lên GitHub (chứa thư mục cloud_image/ và .github/workflows/build-cloud-image.yml):
+
+1. Chạy GitHub Actions:
+   - Mở tab "Actions" trên GitHub -> chọn workflow "Build & Publish VIE-Phim Cloud Image".
+   - Nếu mới tạo hoặc muốn build lại thủ công, bấm "Run workflow" -> chờ build đẩy lên ghcr.io.
+
+2. Chuyển Package sang Public (chỉ cần làm ĐÚNG 1 LẦN duy nhất):
+   - Ở trang chính repo GitHub, nhìn cột bên phải mục "Packages" -> bấm vào package vừa build.
+   - Bấm "Package settings" (bên phải).
+   - Cuộn xuống phần "Danger Zone" -> bấm "Change visibility" -> chọn "Public".
+   - Nhập tên package để xác nhận.
+   * Bước này giúp Vast.ai kéo Docker Image mà KHÔNG cần nhập tài khoản hay mật khẩu Docker.
+
+3. Dán tên Image vào phần mềm VIE-Phim:
+   - Đường dẫn Image có dạng chữ thường hoàn toàn:
+     ghcr.io/<ten-github-cua-ban>/<ten-repo>:latest
+   - Mở VIE-Phim -> Cài đặt -> Tab "1. Động cơ GPU" -> mục "Vast.ai Public Docker Image"
+     -> chọn/dán link ghcr.io/... rồi bấm Lưu.
+   - Từ lần sau bấm "Kết nối GPU Cloud", máy ảo kích hoạt chế độ Zero-Install (<15 giây)!
